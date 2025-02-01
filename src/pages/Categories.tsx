@@ -3,6 +3,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import Category from "../components/ecommerce/Category/Category";
 import { useEffect } from "react";
 import { actGetCategories } from "../store/categories/categoriesSlice";
+import Loading from "../components/feedback/Loading/Loading";
 
 const Categories = () => {
 
@@ -24,9 +25,9 @@ const Categories = () => {
 
   return (
     <Container>
-      <Row>
-        {categoriesList}
-      </Row>
+      <Loading status={loading} error={error}>
+        <Row>{categoriesList}</Row>
+      </Loading>
     </Container>
   );
 };
